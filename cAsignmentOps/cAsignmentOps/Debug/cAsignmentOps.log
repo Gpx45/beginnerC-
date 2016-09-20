@@ -1,0 +1,2 @@
+﻿  assignOps.cpp
+c:\users\student\documents\visual studio 2015\projects\casignmentops\casignmentops\assignops.cpp(15): error C2296: '%=': illegal, left operand has type 'double'
