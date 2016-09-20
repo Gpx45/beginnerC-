@@ -13,7 +13,10 @@ int main() {
 	cin >> books;
 	cout << "How many months will itm take you to read them: ";
 	cin >> months;
-	perMonth = static_cast<double>(books)/ months;
+	perMonth = static_cast<double>(books) / months;
+	// you can also type like this\
+	// perMonth = (double)books / months;  
+	//informal way but still excepted by C
 	cout << "Thats is :" << perMonth << " books per month. \n";
 
 	return 0;
