@@ -1,0 +1,4 @@
+﻿  boxOffice.cpp
+c:\users\student\documents\visual studio 2015\projects\boxoffice\boxoffice\boxoffice.cpp(29): warning C4244: 'return': conversion from 'const double' to 'float', possible loss of data
+  boxOffice.vcxproj -> c:\users\student\documents\visual studio 2015\Projects\boxOffice\Debug\boxOffice.exe
+  boxOffice.vcxproj -> c:\users\student\documents\visual studio 2015\Projects\boxOffice\Debug\boxOffice.pdb (Full PDB)
