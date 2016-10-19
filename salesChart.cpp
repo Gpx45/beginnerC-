@@ -1,125 +1,88 @@
 /*
+
 Victor Martins
-chart.cpp
+
+salesChart
+
+Input: The users will be asked to input 5 values coresponding to how
+much money that store amde.
 
 
-Input: In this program the user has to input 5 different values
-and then it will calculate a bar graph on the screen
-
-Processing: The program take the 5 values from each store and for every $100
-from each one of those values, it will output a star " * " on their respected line.
-
-Output:
+Processing:1. take the stores values
+2. if any values are 0 or below then it will display a message and tell the user
+to try again.
+3.It calcaulates how many stars will be outputed based on the inital amount
 
 
-Store Sales Analyzer ...
-
-Enter today's sales for store 1: 500 600 734 255 744
-
-Enter today's sales for store 2:
-Enter today's sales for store 3:
-Enter today's sales for store 4:
-Enter today's sales for store 5:
-SALES BAR CHART
-(Each * = $100)
-
-Store 1: *****
-Store 2: ******
-Store 3: *******
-Store 4: **
-Store 5: *******
-
-Press any key to continue . . .
+Output: It will Output a bar graph demostration based on the inputs that has been inputed
+by the user.
 
 
 */
 
+
 #include<iostream>
-#include<iomanip>
-#include<string>
 
 using namespace std;
 
 int main() {
-	
-	int store1, store2, store3, store4, store5;// initialize each value
-	char s;
-	s = '*';// set the * to be output
-	const int starAmount = 100;
-	cout << "\nStore Sales Analyzer ...\n" << endl;
-	cout << "Enter today's sales for store 1: "; // asks for store 1
-	cin >> store1;
-	cout << endl;
-	cout << "Enter today's sales for store 2: ";  // asks for store 2
-	cin >> store2;
-	cout << endl;
-	cout << "Enter today's sales for store 3: ";  // asks for store 3
-	cin >> store3;
-	cout << endl;
-	cout << "Enter today's sales for store 4: ";  // asks for store 4
-	cin >> store4;
-	cout << endl;
-	cout << "Enter today's sales for store 5: ";  // asks for store 5
-	cin >> store5;
-	cout << endl;
-	do{
 
-		if (store1 <= 0 || store2 <= 0 || store3 <= 0 || store4 <= 0 || store5 <= 0) // if the user enters a value 0 and below it will ask for the inputs again
-		{
-			cout << "You Have Entered an Invalid Number! Please Try Again! ";
-			cin >> store1 >> store2 >> store3 >> store4, store5;
+	int store1, store2, store3, store4, store5, stars;//initialize all the varables
+	char symbol = '*';
+
+	do {
+		// this do while will activate run through until all values are above 0
+		cout << "Store Sales Analyzer ...\n\n";
+		cout << "Enter Today's sales for store 1: ";
+		cin >> store1;
+		cout << "\nEnter Today's sales for store 2: ";
+		cin >> store2;
+		cout << "\nEnter Today's sales for store 3: ";
+		cin >> store3;
+		cout << "\nEnter Today's sales for store 4: ";
+		cin >> store4;
+		cout << "\nEnter Today's sales for store 5: ";
+		cin >> store5;
+
+		if (store1 <= 0 || store2 <= 0 || store3 <= 0 || store4 <= 0 || store5 <= 0) { // if the values are 0 and below it will give an error
+			cout << "You have entered an incorrect value.\n";
+			cout << "Please Enter them again\n" << endl;
 		}
-		
-	} while (store1 < 0 || store2 < 0 || store3 < 0 || store4 < 0 || store5 <= 0);
 
-	cout << "SALES BAR CHART\n";//program starts here
-	cout << "(Each * = $100)\n\n";
+	} while (store1 <= 0 || store2 <= 0 || store3 <= 0 || store4 <= 0 || store5 <= 0); 
+	//if the values pass this conditon then it continues with the code
 
-	cout << "Store 1: ";
-	
-	do { //outputs bar fore store 1
-		cout << s;
-		store1 -= starAmount;
-	} while (store1 >= starAmount);
-	
+	cout << "\nSALES BAR CHART\n";
+	cout << "(Each * = 100)\n";
+	//starts iteration of the switch statement, up to 5 it then breaks anf goes to the 
+	//next for loop
+	for (int s = 1; s <= 5; s++) {
+
+		switch (s) {
+
+		case 1:
+			stars = store1 / 100;//to each iteration (s) it wll calculate the anwser based on the intial value.
+			break;
+		case 2:
+			stars = store2 / 100;
+			break;
+		case 3:
+			stars = store3 / 100;
+			break;
+		case 4:
+			stars = store4 / 100;
+			break;
+		case 5:
+			stars = store5 / 100;
+			break;
+
+		}
+		cout << "Store " << s << ": ";
+		for (int c = 1; stars >= c; c++) {//depending on the calculation based on the inital value it
+			cout << symbol;					// it will display a set number of stars on that line
+		}
+		cout << endl; //it then goes to the next line and it iterates until the parent for loop is >=5 
+	}
 	cout << endl;
-	cout << "Store 2: ";
-	
-	do { //outputs bar fore store 2
-		cout << s;
-		store2 -= starAmount;
-	
-	} while (store2 >= starAmount);
-
-	cout << endl;
-	cout << "Store 3: ";
-
-	do { //outputs bar fore store 3
-		cout << s;
-		store3 -= starAmount;
-
-	} while (store3 >= starAmount);
-
-	cout << endl;
-	cout << "Store 4: ";
-
-	do { //outputs bar fore store 4
-		cout << s;
-		store4 -= starAmount;
-
-	} while (store4 >= starAmount);
-
-	cout << endl;
-	cout << "Store 5: ";
-
-	do { //outputs bar fore store 5
-		cout << s;
-		store5 -= starAmount;
-		
-	} while (store5 >= starAmount);
-
-	cout << endl;
-	cout << endl;
-
 	return 0;
 }
