@@ -1,22 +1,15 @@
 /*
+Victor Martins
 
-	Victor Martins
-	
-	lowestScore.cpp
-
-	Calculates the average of a group of 5 test scores, 
-	weres the lowest score in the group is dropped.
-
-	Input: 5 test scores
-
-	Processing: 1. To prompt user for 5 scores
-				2. detirmine lowest score
-				3. Calcualte the average of 4 highest scores
-				4. display the result.
-
-	Output: Average og the 4 highest scores.
-
-
+lowestScore.cpp
+Calculates the average of a group of 5 test scores,
+weres the lowest score in the group is dropped.
+Input: 5 test scores
+Processing: 1. To prompt user for 5 scores
+2. detirmine lowest score
+3. Calcualte the average of 4 highest scores
+4. display the result.
+Output: Average og the 4 highest scores.
 */
 
 #include<iostream>
@@ -54,15 +47,10 @@ int main() {
 
 
 /*
-
-	void getScore(int i, int& score)
-
-	Prompt user for the value of score "n", (0-100) and return it through
-	the reference parameter "score".
-
-	Return Value: None
-
-
+void getScore(int i, int& score)
+Prompt user for the value of score "n", (0-100) and return it through
+the reference parameter "score".
+Return Value: None
 */
 void getScore(int n, int& score) {
 
@@ -85,10 +73,7 @@ void getScore(int n, int& score) {
 
 /*
 void calcAverage(int s1, int s2, int s3, int s4, int s5)
-
 calculate and Display the average of the four highest scores (s1-s5)
-
-
 */
 void calcAverage(int s1, int s2, int s3, int s4, int s5) {
 
@@ -100,7 +85,7 @@ void calcAverage(int s1, int s2, int s3, int s4, int s5) {
 
 
 	//calculate & Display average
-	
+
 	average = (s1 + s2 + s3 + s4 + s5 - lowest) / 4.0;
 
 	cout << "\nThe average of the four highest score is:" <<
@@ -111,11 +96,8 @@ void calcAverage(int s1, int s2, int s3, int s4, int s5) {
 
 /*
 int findLowest(int s1, int s2, int s3, int s4, int s5)
-
 Determine the lwo3est of five score(s1-s5) and return it
 to the caller.
-
-
 */
 
 
@@ -140,6 +122,5 @@ int findLowest(int s1, int s2, int s3, int s4, int s5) {
 		lowest = s5;
 	}
 
-	return lowest;
+	return lowest; // returns the lowest score in the var "lowest"
 }
-
