@@ -40,6 +40,10 @@ const string monkeys[] = { "Harambe", "Billy", "George" };
 const string days[] = { "Monday","Tuesday","Wednesday","Thursday","Friday" };
 
 //Prototypes:
+void GetFood(double[][DAYS], int);
+double GetAverage(double[][DAYS], int);
+double GetLeast(double[][DAYS], int);
+double GetGreatest(double[][DAYS], int);
 
 
 int main() {
@@ -64,7 +68,7 @@ int main() {
 
 	// Calculate and Display Average amount of food eaten per day by all the monkeys
 
-	cout << "\nThe Amount of Food eaten by the monkeys on: " < , endl;
+	cout << "\nThe Amount of Food eaten by the monkeys on: " << endl;
 	for (int d = 0; d < DAYS; d++) {
 		average = GetAverage(food, d);
 		cout << "\t" << days[d] << " is " << average << endl;
@@ -90,10 +94,112 @@ int main() {
 
 		greatest = GetGreatest(food, m);
 		cout << "\t" << monkeys[m] << " is " << greatest << " pounds " << endl;
-
 	}
+
+
+
 	return 0;
 }
 
+/*
+void GetFood(double food[],int m)
 
+Prompt the user for the amount of food eaten by "monkey"
+during the week and store it in food[]
+
+
+*/
+
+void GetFood(double food[][DAYS], int monkey) {
+
+	cout << "\n\tEnter amount of food eaten by " << monkeys[monkey] << " on " << endl;
+
+	for (int d = 0; d < DAYS; d++)
+		do {
+
+			cout << "\t" << days[d] << ": ";
+			cin >> food[monkey][d];
+
+			if (food[monkey][d] < 0)
+				cout << "\n\t Error... Invalid Number. Try again" << endl;
+		} while (food[monkey][d] < 0);
+		
+
+
+
+	return;
+}
+
+/*
+double GetAverage(double food[][DAYS], int day)
+
+calculate the average amount of food eaten by the whole family
+of monkeys on "day"
+
+return Value: Average
+
+*/
+
+
+double GetAverage(double food[][DAYS], int day) {
+
+	double average, total = 0;
+
+	for (int m = 0; m < MONKEYS; m++)
+		total += food[m][day];
+
+	average = total / MONKEYS;
+
+	return average;
+}
+
+
+/*
+double GetLeast(double food[][DAYS], int monkey)
+
+return the least amount of food eaten by "monkey"
+during the week
+
+Return Value: Least amount of food.
+
+*/
+
+double GetLeast(double food[][DAYS], int monkey) {
+
+	double least;
+
+	least = DBL_MAX;
+
+	for (int d = 0; d < DAYS; d++)
+		if (food[monkey][d] < least)
+			least = food[monkey][d];
+
+
+	return least;
+}
+
+
+/*
+double GetLeast(double food[][DAYS], int monkey)
+
+return the least amount of food eaten by "monkey"
+during the week
+
+Return Value: Least amount of food.
+
+*/
+
+double GetGreatest(double food[][DAYS], int monkey) {
+
+	double greatest;
+
+	greatest = DBL_MIN;
+
+	for (int d = 0; d < DAYS; d++)
+		if (food[monkey][d] > greatest)
+			greatest = food[monkey][d];
+
+
+	return greatest;
+}
 
